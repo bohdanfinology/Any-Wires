@@ -119,6 +119,10 @@ th {
     color: rgb(119, 114, 114);
 }
 
+.tableList .column6 {
+    background-color: rgba(219, 217, 217, 0.3);
+}
+
 .tableList tr:hover {
     background: rgb(230, 230, 230);
     cursor: pointer;

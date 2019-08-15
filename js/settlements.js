@@ -170,6 +170,7 @@ class SettlementsList {
                 <td class="col column3">${item.Type}</td> 
                 <td class="col column4">${item.Wallet}</td> 
                 <td class="col column5">${item.Status}</td>
+                <th class="column6"></th>
             `;
             }
 
