@@ -293,3 +293,72 @@ prevSettleBtn.addEventListener('click', (e) => {
 
 });
 
+// UPLOAD FILE BUTTON
+
+class Comment {
+    constructor(userName, comm) {
+        this.userName = userName;
+        this.comm = comm;
+        this.render();
+    }
+
+    coment() {
+        this.container = document.querySelector(".commentTitile");
+        this.div = document.createElement("div");
+        this.div.className = 'comment';
+        this.div.innerHTML = `
+            <span>${this.userName}</span>
+            <p>${this.comm}</p>
+        `;
+     this.div.appendAfter(this.container);
+    }
+
+    render() {
+        this.coment();
+    }
+}
+
+let commentBtn = document.querySelector('.addCommentBtn');
+
+commentBtn.addEventListener('click', (e) => {
+    let userName = 'AW_Finance';
+    let comm =  document.querySelector('.commentField').value;
+    let a = new Comment(userName, comm);
+});
+
+
+// ADD COMMISSION BUTTON
+
+class Commission {
+    constructor(userName, commis, commisSum) {
+        this.userName = userName;
+        this.commis = commis;
+        this.commisSum = commisSum;
+        this.render();
+    }
+
+    commissions() {
+        this.container = document.querySelector(".fourthRowCommentBlock");
+        this.div = document.createElement("div");
+        this.div.className = 'comment';
+        this.div.innerHTML = `
+            <span>${this.userName}</span>
+            <p>${this.commis}</p>
+            <span>€${this.commisSum}</span>
+        `;
+     this.div.appendAfter(this.container);
+    }
+
+    render() {
+        this.commissions();
+    }
+}
+
+let commissionBtn = document.querySelector('.addCommissionBtn');
+
+commissionBtn.addEventListener('click', (e) => {
+    let userName = 'AW_Finance';
+    let commis =  document.querySelector('.commissionType').value;
+    let commisSum =  document.querySelector('.commissionAmount').value;
+    let c = new Commission(userName, commis, commisSum);
+});
