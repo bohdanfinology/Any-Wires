@@ -119,6 +119,10 @@ th {
     color: rgb(119, 114, 114);
 }
 
+.tableList .column6 {
+    background-color: rgba(219, 217, 217, 0.3);
+}
+
 .tableList tr:hover {
     background: rgb(230, 230, 230);
     cursor: pointer;
@@ -329,7 +333,7 @@ th {
     color: rgb(119, 114, 114);
 }
 
-.prevSettleBtn, .addCommentBtn{
+.settlePrevBtn {
     margin: 10px;
     padding: 10px 20px;
     font-size: 18px;
@@ -341,7 +345,7 @@ th {
     outline: none;
 }
 
-.prevSettleBtn:hover, .addCommentBtn:hover {
+.settlePrevBtn:hover {
     background: #20a5f7;
 }
 
@@ -351,17 +355,18 @@ th {
     align-items: center;
 }
 
-.comment1, .comment2 {
+.comment {
     display: flex;
     justify-content: space-around;
     border: 1px dashed rgb(77, 77, 77);
+    width: 100%;
 }
 
-.comment1 span, .comment2 span{
+.comment span {
     padding: 20px;
 }
 
-.comment1 p, .comment2 p{
+.comment p {
     padding: 20px;
 }
 .settlementDetails-form {
@@ -374,6 +379,7 @@ th {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-top: 10px;;
 }
 
 .RowCommentBlock form {
@@ -392,15 +398,20 @@ th {
     font-size: 20px;
 }
 
+.fourthRowCommentBlock {
+    display: flex;
+    flex-direction: column;
+}
+
 .docType {
     height: 40px;
     padding: 5px;
 }
 
 #buttonid {
-    height: 60%;
+    height: 50%;
     margin: 10px;
-    padding: 10px 20px;
+    padding: 5px;
     font-size: 18px;
     font-weight: 500;
 }
@@ -409,7 +420,7 @@ th {
     width: 75%;
 }
 
-.RowCommentBlock .addCommentBtn {
+.RowCommentBlock .settlePrevBtn {
     height: 80%;
     margin: 10px;
     padding: 10px 20px;
@@ -422,7 +433,7 @@ th {
     outline: none;
 }
 
-.RowCommentBlock .addCommentBtn:hover {
+.RowCommentBlock .settlePrevBtn:hover {
     background: #20a5f7;
 }
 
@@ -542,19 +553,16 @@ th {
         font-size: 14px;
     }
 
-    .prevSettleBtn, .addCommentBtn{
+    .settlePrevBtn {
         margin: 10px;
         padding: 10px 15px;
         font-size: 16px;
     }
 
-    .comment1 span, .comment2 span{
+    .comment span, .comment1 p {
         padding: 20px;
     }
 
-    .comment1 p, .comment2 p{
-        padding: 20px;
-    }
     .settlementDetails-form {
         padding: 0;
         margin-top: 10px;
@@ -575,11 +583,11 @@ th {
     #buttonid {
         height: 50%;
         margin: 10px;
-        padding: 10px 15px;
+        padding: 5px;
         font-size: 16px;
     }
 
-    .RowCommentBlock .addCommentBtn {
+    .RowCommentBlock .settlePrevBtn {
         height: 80%;
         margin: 10px;
         padding: 10px 15px;
@@ -664,20 +672,21 @@ th {
         font-size: 12px;
     }
 
-    .prevSettleBtn, .addCommentBtn{
+    .settlePrevBtn{
         margin: 10px;
         padding: 10px;
         font-size: 14px;
     }
 
-    .comment1 span, .comment2 span{
+    .comment span {
         padding: 10px;
     }
 
-    .comment1 p, .comment2 p{
+    .comment p {
         padding: 10px;
         font-size: 14px;
     }
+
     .settlementDetails-form {
         padding: 0;
         margin-top: 10px;
@@ -698,7 +707,7 @@ th {
     #buttonid {
         height: 50%;
         margin: 10px;
-        padding: 10px;
+        padding: 5px;
         font-size: 11px;
     }
 
@@ -706,7 +715,7 @@ th {
         width: 75%;
     }
 
-    .RowCommentBlock .addCommentBtn {
+    .RowCommentBlock .settlePrevBtn {
         height: 80%;
         margin: 10px;
         padding: 10px;
@@ -830,21 +839,17 @@ th {
         font-size: 10px;
     }
 
-    .prevSettleBtn, .addCommentBtn{
+    .settlePrevBtn{
         margin: 5px;
         padding: 5px;
         font-size: 10px;
     }
 
-    .comment1 span, .comment2 span{
+    .comment span, .comment p {
         padding: 5px;
         font-size: 10px;
     }
 
-    .comment1 p, .comment2 p{
-        padding: 5px;
-        font-size: 10px;
-    }
     .settlementDetails-form {
         padding: 0;
         margin-top: 10px;
@@ -874,7 +879,7 @@ th {
         width: 75%;
     }
 
-    .RowCommentBlock .addCommentBtn {
+    .RowCommentBlock .settlePrevBtn {
         height: 80%;
         margin: 10px;
         padding: 5px;
@@ -1001,21 +1006,17 @@ th {
         font-size: 7px;
     }
 
-    .prevSettleBtn, .addCommentBtn{
+    .settlePrevBtn {
         margin: 5px;
         padding: 5px;
         font-size: 7px;
     }
 
-    .comment1 span, .comment2 span{
+    .comment span, .comment p {
         padding: 5px;
         font-size: 7px;
     }
 
-    .comment1 p, .comment2 p{
-        padding: 5px;
-        font-size: 7px;
-    }
     .settlementDetails-form {
         padding: 0;
         margin-top: 10px;
@@ -1045,7 +1046,7 @@ th {
         width: 75%;
     }
 
-    .RowCommentBlock .addCommentBtn {
+    .RowCommentBlock .settlePrevBtn {
         height: 60%;
         margin: 5px;
         padding: 5px;

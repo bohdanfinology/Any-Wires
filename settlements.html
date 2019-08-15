@@ -208,16 +208,16 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="prevSettleBtn">Preview settlement</button>
+                    <button class="prevSettleBtn settlePrevBtn">Preview settlement</button>
                 </div>
                 <hr class="settleHr">
-                <div class="main-form">
-                    <h1 class="settlementDetails-header">Comments and Updates</h1>
-                    <div class="comment1">
+                <div class="main-form commnetsMenu">
+                    <h1 class="settlementDetails-header commentTitile">Comments and Updates</h1>
+                    <div class="comment">
                             <span>AW_Finance</span>
                             <p>Included fee for B2C transfer to client Camillo Pasquini, proof is attached in Additional documents</p>
                     </div>
-                    <div class="comment2">
+                    <div class="comment">
                             <span>AW_Finance</span>
                             <p>Settlement was made with 2 parts to MrTango account.
                                     Today we've got confirmation that settlement payment have been received by merchant.
@@ -225,9 +225,9 @@
                     </div>
                     <div class="firstRowCommentBlock RowCommentBlock">
                         <form action="#">
-                            <input type="text" placeholder="Commission type">
-                            <input type="text" placeholder="Amount">
-                            <input type="submit" class="addCommentBtn" value="Add Commission">
+                            <input type="text" class="commissionType" placeholder="Commission type">
+                            <input type="number" class="commissionAmount" placeholder="Amount">
+                            <input type="submit" class="addCommissionBtn settlePrevBtn" value="Add Commission">
                         </form>
                     </div>
                     <div class="secondRowCommentBlock RowCommentBlock">
@@ -238,14 +238,25 @@
                                 <option value="Contract">Contract</option>
                                 <option value="Additional">Additional</option>
                             </select>
-                            <input id='fileid' type='file' hidden/>
-                            <input id='buttonid' type='button' value='File' />
-                            <input type="submit" class="addCommentBtn" value="Upload">
+                            <input id='buttonid' type="file" name="file" accept="file/*">
+                            <input type="submit" class="addDocBtn settlePrevBtn" value="Upload">
                         </form>
                     </div>
                     <div class="thirdRowCommentBlock RowCommentBlock">
                         <input type="text" class="commentField" placeholder='Type here...'>
-                        <input type="submit" class="addCommentBtn" value="Add Comment">
+                        <input type="submit" class="addCommentBtn settlePrevBtn" value="Add Comment">
+                    </div>
+                    <div class="fourthRowCommentBlock RowCommentBlock">
+                        <div class="comment">
+                            <span>AW_Finance</span>
+                            <p>B2C Transfer 2000 EUR for client Camillo Pasquini</p>
+                            <span>€2 000</span>
+                        </div>
+                        <div class="comment">
+                            <span>AW_Finance</span>
+                            <p>Commission for B2C Transfer 2000 EUR for client Camillo Pasquini (5% + 100 EUR)</p>
+                            <span>€200</span>
+                        </div>
                     </div>
                 </div>
             </div>
