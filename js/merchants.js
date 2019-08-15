@@ -73,14 +73,10 @@ class UsersList {
     downloadPdf(){
         // For hide not useless element jsPDF
         let col6 = document.querySelectorAll(".column6");
-        for (let i = 0; i < col6.length; i++) {
-            col6[i].style.display = "none";
-        };
+        col6.forEach((item) => item.style.display = "none");
 
         setTimeout(() => {
-            for (let i = 0; i < col6.length; i++) {
-                col6[i].style.display = "table-cell";
-             }
+            col6.forEach((item) => item.style.display = "table-cell");
         },10);
         // For hide not useless element jsPDF
         
@@ -118,10 +114,10 @@ class UsersList {
         }
     }
 
-    loadUsers(){
-        var size = 10;
+    loadUsers(arr){
+        var size = 15;
         this.container = document.getElementById("table-list");
-        USERS.slice(0, size).forEach((item) => {
+        arr.slice(0, size).forEach((item) => {
             item === "" ? item = "—" : "";
             this.userList = document.createElement("tr");
             this.userList.innerHTML =  `
@@ -139,13 +135,12 @@ class UsersList {
                     </td>
                
             `;
-            
         this.container.appendChild(this.userList);
         })
     }
 
     render(){
-        this.loadUsers();
+        this.loadUsers(USERS);
         this.buttonSearch.addEventListener("click", this.searchFunction);
         this.buttonPdf.addEventListener("click", this.downloadPdf);
     }
@@ -163,7 +158,7 @@ class view {
         this.render();
     }
 
-    addMerchant(){
+    addMerchant = () => {
                     this.wrapper = document.querySelector("#wrapper");
                     this.wrapper.classList.add("opacityWrapper");
 
@@ -179,6 +174,8 @@ class view {
                     this.labelName.textContent = "Name:";
                     this.blockFirst.appendChild(this.labelName);
                     this.inputName = document.createElement("input");
+                    this.inputName.classList.add("inputAdd");
+                    this.inputName.setAttribute("type", "text");
                     this.inputName.classList.add("inputName");
                     this.inputName.placeholder = "Please enter your name";
                     this.blockFirst.appendChild(this.inputName);
@@ -191,6 +188,8 @@ class view {
                     this.labelPromo.textContent = "Promo:";
                     this.blockFirst.appendChild(this.labelPromo);
                     this.inputPromo = document.createElement("input");
+                    this.inputPromo.classList.add("inputAdd");
+                    this.inputPromo.setAttribute("type", "text");
                     this.inputPromo.classList.add("inputName");
                     this.inputPromo.placeholder = "Promo";
                     this.blockFirst.appendChild(this.inputPromo);
@@ -203,6 +202,8 @@ class view {
                     this.labelAff.textContent = "Affiliate:";
                     this.blockSecond.appendChild(this.labelAff);
                     this.inputAff = document.createElement("input");
+                    this.inputAff.classList.add("inputAdd");
+                    this.inputAff.setAttribute("type", "text");
                     this.inputAff.classList.add("inputName");
                     this.inputAff.placeholder = "Affiliate";
                     this.blockSecond.appendChild(this.inputAff);
@@ -211,6 +212,9 @@ class view {
                     this.labelIn.textContent = "In, %:";
                     this.blockSecond.appendChild(this.labelIn);
                     this.inputIn = document.createElement("input");
+                    this.inputIn.classList.add("inputAdd");
+                    this.inputIn.setAttribute("type", "number");
+                    this.inputIn.setAttribute("title", "Only Digits");
                     this.inputIn.classList.add("inputName");
                     this.inputIn.placeholder = "In, %";
                     this.blockSecond.appendChild(this.inputIn);
@@ -225,39 +229,46 @@ class view {
                     this.buttonSave.classList.add("buttonSave");
                     this.container.appendChild(this.buttonSave);
 
-                    this.buttonSave.addEventListener("click", () => {
-                        USERS.push({
-                            Name: this.inputName.value,
-                            Created_By: this.inputCreate.value,
-                            Promo: this.inputPromo.value,
-                            Aff: this.inputAff.value, 
-                            In_Persent: this.inputIn.value,
-                            Turnover_month: this.inputTurn.value
-                        });
-                        console.log(USERS);
-                        this.tableMerch = document.querySelector("#table-list");
-                        this.newTr = document.createElement("tr");
-                        this.newTr.innerHTML = `
-                        <td class="column1">${this.inputName.value}</td> 
-                        <td class="column2">${this.inputCreate.value}</td> 
-                        <td class="column3">${this.inputPromo.value}</td> 
-                        <td class="column4">${this.inputAff.value}</td> 
-                        <td class="column5">${this.inputIn.value}</td>
-                        <td class="column5">${this.inputTurn.value}</td>
-                        <td class="column6"> 
-                            <div id="merchantButtons">
-                                <button class="buttonView">View</button> 
-                                <button class="buttonAddSettle">Add Settle</button>
-                            </div>
-                        </td>`;
-                        this.tableMerch.appendChild(this.newTr);
+                    
 
-                        jQuery(function($){
-                                var div = $("#modal-view"); // тут указываем ID элемента
-                                    div.hide(); // скрываем его
-                                    $("#wrapper").removeClass("opacityWrapper");
-                                    $("#modal-view").empty();
-                        });
+                    this.buttonSave.addEventListener("click", () => {
+                        if (this.inputName.value.length && this.inputPromo.value.length && this.inputAff.value.length && this.inputIn.value.length){
+                                USERS.push({
+                                    Name: this.inputName.value,
+                                    Created_By: this.inputCreate.value,
+                                    Promo: this.inputPromo.value,
+                                    Aff: this.inputAff.value, 
+                                    Aff: this.inputAff.value, 
+                                    Aff: this.inputAff.value, 
+                                    In_Persent: this.inputIn.value,
+                                    Turnover_month: this.inputTurn.value
+                                });
+                                this.tableMerch = document.querySelector("#table-list");
+                                this.tableMerch.innerHTML = "";
+                                userList.loadUsers(USERS);
+                                this.viewMerchant();
+
+                                this.modalFill = document.querySelector("#modal-pleaseFill");
+                                this.modalFill.style.display = "none";
+
+                                jQuery(function($){
+                                    var div = $("#modal-view"); // тут указываем ID элемента
+                                        div.hide(); // скрываем его
+                                        $("#wrapper").removeClass("opacityWrapper");
+                                        $("#modal-view").empty();
+                                        $("#modal-pleaseFill").hide();
+                                });
+                                
+                        } else {
+                            this.inputsAdd = document.querySelectorAll(".inputAdd");
+                            this.inputsAdd.forEach((item) => {
+                               item.value==="" ? item.style.boxShadow="0px 0px 2px 2px #FF0000" : item.style.boxShadow="0px 0px 1px 1px #4BA100";
+                            });
+
+                            this.modalFill = document.querySelector("#modal-pleaseFill");
+                            this.modalFill.classList.add("slide-top");
+                            this.modalFill.style.display = "flex";
+                        } 
                     })
     }
 
@@ -270,7 +281,7 @@ class view {
                     div.hide(); // скрываем его
                     $("#wrapper").removeClass("opacityWrapper");
                     $("#modal-view").empty();
-                    
+                    $("#modal-pleaseFill").hide();
                 }
             });
         });
@@ -297,6 +308,7 @@ class view {
                     this.labelName.textContent = "Name:";
                     this.blockFirst.appendChild(this.labelName);
                     this.inputName = document.createElement("input");
+                    this.inputName.classList.add("inputsView");
                     this.inputName.classList.add("inputName");
                     this.inputName.value = value.children[0].textContent;
                     this.blockFirst.appendChild(this.inputName);
@@ -305,6 +317,7 @@ class view {
                     this.labelCreate.textContent = "Create By:";
                     this.blockFirst.appendChild(this.labelCreate);
                     this.inputCreate = document.createElement("input");
+                    this.inputCreate.classList.add("inputsView");
                     this.inputCreate.classList.add("inputName");
                     this.inputCreate.value = value.children[1].textContent;
                     this.blockFirst.appendChild(this.inputCreate);
@@ -313,6 +326,7 @@ class view {
                     this.labelPromo.textContent = "Promo:";
                     this.blockFirst.appendChild(this.labelPromo);
                     this.inputPromo = document.createElement("input");
+                    this.inputPromo.classList.add("inputsView");
                     this.inputPromo.classList.add("inputName");
                     this.inputPromo.value = value.children[2].textContent;
                     this.blockFirst.appendChild(this.inputPromo);
@@ -325,14 +339,16 @@ class view {
                     this.labelAff.textContent = "Aff:";
                     this.blockSecond.appendChild(this.labelAff);
                     this.inputAff = document.createElement("input");
+                    this.inputAff.classList.add("inputsView");
                     this.inputAff.classList.add("inputName");
                     this.inputAff.value = value.children[3].textContent;
                     this.blockSecond.appendChild(this.inputAff);
 
                     this.labelIn = document.createElement("p");
-                    this.labelIn.textContent = "Aff:";
+                    this.labelIn.textContent = "In, %:";
                     this.blockSecond.appendChild(this.labelIn);
                     this.inputIn = document.createElement("input");
+                    this.inputIn.classList.add("inputsView");
                     this.inputIn.classList.add("inputName");
                     this.inputIn.value = value.children[4].textContent;
                     this.blockSecond.appendChild(this.inputIn);
@@ -341,6 +357,7 @@ class view {
                     this.labelTurn.textContent = "Turnover, month:";
                     this.blockSecond.appendChild(this.labelTurn);
                     this.inputTurn = document.createElement("input");
+                    this.inputTurn.classList.add("inputsView");
                     this.inputTurn.classList.add("inputName");
                     this.inputTurn.value = value.children[5].textContent;
                     this.blockSecond.appendChild(this.inputTurn);
@@ -352,24 +369,38 @@ class view {
                     this.container.appendChild(this.buttonSave);
 
                     this.buttonSave.addEventListener("click", () => {
-                        value.children[0].textContent = this.inputName.value;
-                        value.children[1].textContent = this.inputCreate.value;
-                        value.children[2].textContent = this.inputPromo.value;
-                        value.children[3].textContent = this.inputAff.value;
-                        value.children[4].textContent = this.inputIn.value;
-                        value.children[5].textContent = this.inputTurn.value;
+                        if (this.inputName.value!="" && this.inputCreate.value!=""&& this.inputPromo.value!=""&& this.inputAff.value!="" && this.inputIn.value!="" && this.inputTurn.value != "") {
+                            value.children[0].textContent = this.inputName.value;
+                            value.children[1].textContent = this.inputCreate.value;
+                            value.children[2].textContent = this.inputPromo.value;
+                            value.children[3].textContent = this.inputAff.value;
+                            value.children[4].textContent = this.inputIn.value;
+                            value.children[5].textContent = this.inputTurn.value;
 
-                        jQuery(function($){
-                                var div = $("#modal-view"); // тут указываем ID элемента
-                                    div.hide(); // скрываем его
-                                    $("#wrapper").removeClass("opacityWrapper");
-                                    $("#modal-view").empty();
-                        });
-                    })
-                    
+                            jQuery(function($){
+                                    var div = $("#modal-view"); // тут указываем ID элемента
+                                        div.hide(); // скрываем его
+                                        $("#wrapper").removeClass("opacityWrapper");
+                                        $("#modal-view").empty();
+                                        $("#modal-pleaseFill").hide();
+                            });
+
+                            this.modalFill = document.querySelector("#modal-pleaseFill");
+                            this.modalFill.style.display = "none";
+                            
+                        } else {
+                            this.inputsView = document.querySelectorAll(".inputsView");
+                            this.inputsView.forEach((item) => {
+                                item.value==="" ? item.style.boxShadow="0px 0px 2px 2px #FF0000" : item.style.boxShadow="0px 0px 1px 1px #4BA100";
+                             });
+
+                            this.modalFill = document.querySelector("#modal-pleaseFill");
+                            this.modalFill.classList.add("slide-top");
+                            this.modalFill.style.display = "flex";
+                        }
+                    });
                 })
             }
-            
     }
 
     render(){
