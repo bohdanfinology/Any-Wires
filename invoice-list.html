@@ -4,18 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Invoice Report</title>
+		<title>Invoice List</title>
 		<meta name="description" content="Anywires" />
 		<meta name="keywords" content="Anywires" />
 		<meta name="author" content="Anywires" />
 		<link rel="shortcut icon" href="img/AnyWiresFavicon.png" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="css/invoice-report.css" />
+		<link rel="stylesheet" type="text/css" href="css/invoice-list.css" />
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="css/menu-comp.css" />
-		<link rel="stylesheet" type="text/css" href="css/invoice-report-table.css">
+		<link rel="stylesheet" type="text/css" href="css/invoice-list-table.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<script src="js/modernizr.custom.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/b1090e9fd1.js"></script>
 		<!-- For Calendar Inputs -->
 		<link rel="stylesheet" href="./css/datepicker.min.css">
 		<script src="./js/datepicker.min.js"></script>
@@ -57,39 +59,63 @@
 			<!--Header Page-->
 			<header> 
 				<img src="./img/bill.png" alt="icon page"/>
-				<h1>Invoices Report</h1>
+				<h1>Invoice List</h1>
 			</header>
 			
 			<!--Main Page-->
 			<main>
 
 				<div id="table-block">
-
-					<div class="fromTill-block">
-						<div class="blockRestore">
-							<button class="restoreBtn">Restore</button>
-						</div>
-
-						<div class="blockFrom">
-							<label align="center">From - Till</label>
-							<input class="fromDate datepicker-here" data-multiple-dates-separator="&emsp; — &emsp;"
+					<div class="filterBlock-first">
+						
+						<div>
+							<label>By creation date:</label>
+							<input class="dateForm datepicker-here" data-multiple-dates-separator="&emsp; — &emsp;"
 																	data-range="true" 
 																	data-language="en"
 																	type="text" 
 																	placeholder="Jul 01, 2019&emsp;—&emsp;Aug 01, 2019"/>
+						</div>
 
-							<div class="selector-block">
-								<select class="selectorState" type="text">
-										<option class="status" value="Status" selected>Status</option>
-										<option value="Approved">Approved</option>
-										<option value="Requested">Requested</option>
-										<option value="Settled">Settled</option>
-										<option value="Sent">Sent</option>
-										<option value="Received">Received</option>
-										<option value="Declined">Declined</option>
-								</select>
+						<div>
+							<label>Status</label>
+							<select class="selectorStatus" type="text">
+									<option value="Status" selected="">Status</option>
+									<option value="CMP24">CMP24</option>
+									<option value="CK">CK</option>
+									<option value="GigaFX">GigaFX</option>
+									<option value="Omer">Omer</option>
+									<option value="Lions">Lions</option>
+							</select>
+						</div>
+
+						<div>
+							<label>Bank</label>
+							<select class="selectorStatus" type="text">
+									<option value="Bank" selected="">Bank</option>
+									<option value="CMP24">CMP24</option>
+									<option value="CK">CK</option>
+									<option value="GigaFX">GigaFX</option>
+									<option value="Omer">Omer</option>
+									<option value="Lions">Lions</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="filterBlock-second">
+						<div class="filterBlock-second-part-1">
+							<div>
+								<label>By receive  date:</label>
+								<input class="dateForm datepicker-here" data-multiple-dates-separator="&emsp; — &emsp;"
+																		data-range="true" 
+																		data-language="en"
+																		type="text" 
+																		placeholder="Jul 01, 2019&emsp;—&emsp;Aug 01, 2019"/>
+							</div>
+							<div>
+								<label>Merchant</label>
 								<select class="selectorMerchant" type="text">
-										<option value="Merchant" selected>Merchant</option>
+										<option value="Merchant" selected="">Merchant</option>
 										<option value="CMP24">CMP24</option>
 										<option value="CK">CK</option>
 										<option value="GigaFX">GigaFX</option>
@@ -97,11 +123,30 @@
 										<option value="Lions">Lions</option>
 								</select>
 							</div>
+
+							<div>
+								<label>Documents</label>
+								<select class="selectorMerchant" type="text">
+										<option value="Documents" selected="">Documents</option>
+										<option value="CMP24">CMP24</option>
+										<option value="CK">CK</option>
+										<option value="GigaFX">GigaFX</option>
+										<option value="Omer">Omer</option>
+										<option value="Lions">Lions</option>
+								</select>
+							</div>
+
 						</div>
 
-						<div class="block-generateBtn">
-							<button id="generate-btn">Generate</button>
+						<div class="filterBlock-second-part-2">
+							<input class="input-search" type="search" placeholder="Search..."/>
+							<img class="search-btn" src="./img/magnifying-glass.png" alt="Image Search">
 						</div>
+					</div>
+
+					<div class="showClear-block">
+						<button id="showBtn">Show</button>
+						<button id="clearFilterBtn">Clear Filters</button>
 					</div>
 
 					<div class="table-line "></div>
@@ -110,20 +155,18 @@
 						<table id="table-user">
 							<thead>
 								<tr class="table-head">
-									<th class="column1">Updated</th>
-									<th class="column2">Sol Name</th>
-									<th class="column3">Merchant</th>
+									<th class="column1">Created</th>
+									<th class="column2">Merchant</th>
+									<th class="column3">Name</th>
 									<th class="column4">Sent</th>
-									<th class="column5">Bank Comm</th>
+									<th class="column5">Bank Fee</th>
 									<th class="column6">Received</th>
-									<th class="column7">AW Comm</th>
-									<th class="column8">Approved</th>
-									<th class="column9">Sol Comm</th>
-									<th class="column10">AW Amnt</th>
-									<th class="column11">AW Settle Comm</th>
-									<th class="column12">AW Profit</th>
-									<th class="column13 state">State</th>
-									<th class="column14 last-th">Export</th>
+									<th class="column7">Bank</th>
+									<th class="column8">Available</th>
+									<th class="column9">Payment status</th>
+									<th class="column10">Documents</th>
+									<th class="column11"></th>
+									<th class="column12"></th>
 								</tr>
 							</thead>
 							<tbody id="table-list"></tbody>
@@ -133,7 +176,7 @@
 			</main>
 		</div>
 
-		<script src="./js/invoice-report.js"></script>
+		<script src="./js/invoice-list.js"></script>
 		<script src="js/classie.js"></script>
 		<script src="js/gnmenu.js"></script>
 		<script>
