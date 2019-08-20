@@ -1,0 +1,254 @@
+*{
+margin:0;
+padding:0;
+border:0;
+}
+
+
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F1F4F6;
+    font-family: 'Frank Ruhl Libre', serif;
+}
+
+body button {
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    line-height: 1;
+    border-radius: 3px;
+    outline: none;
+    transition: .35s;
+    font-family: 'Frank Ruhl Libre', serif;
+}
+
+#burgerMenu {
+    display: flex;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+
+}
+
+
+/* Wrapper */
+#wrapper {
+    width: 100%;
+}
+
+.opacityWrapper {
+    opacity: .2;
+}
+
+
+/* Header */
+header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 30px 0 30px 0px;
+    padding-left: 65px;
+    margin-top: 2px;
+}
+header img {
+    margin-right: 15px;
+    width: 45px;
+    height: 45px;
+}
+
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 800px;
+    background-color: rgb(255, 255, 255);
+    padding-top: 30px;
+    margin-top: 2px;
+}
+
+
+
+/* Creation - Receive date Block */
+.dateForm {
+    border: 1px solid rgb(189, 189, 189);
+    height: 40px;
+    width: 240px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: 'Frank Ruhl Libre', serif;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+
+/* Table, list of Users */
+#table-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    padding-bottom: 100px;
+}
+
+.table-line {
+    margin: 10px 0;
+    width: 90%;
+    height: 2px;
+    background-color: rgb(102, 102, 102);
+}
+
+.test {
+    width: 90%;
+}
+
+.filterBlock-first {
+    width: 90%;
+    display: flex;
+}
+
+.filterBlock-first div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    border: 1px solid rgb(189, 189, 189);
+    height: 40px;
+    width: 240px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: 'Frank Ruhl Libre', serif;
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: #F5F5F5;
+}
+
+.filterBlock-second {
+    width: 90%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.filterBlock-second-part-1 {
+    display: flex;
+}
+
+.filterBlock-second-part-1 div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+
+.filterBlock-second-part-2 {
+    display: flex;
+    align-items: flex-end;
+    min-width: 270px;
+}
+
+
+.input-search {
+    width: 250px;
+    height: 40px;
+    background-color: #4D4D4D;
+    border-radius: 3px 0 0 3px;
+    font-size: 16px;
+    padding: 5px 15px;
+    transition: .3s;
+    outline: none;
+    border: none;
+    color: #FFF;
+    font-family: 'Frank Ruhl Libre', serif;
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(54, 54, 54);
+    cursor: pointer;
+    border-radius: 0px 3px 3px 0px;
+}
+
+
+.showClear-block {
+    width: 90%;
+    margin: 10px 0; 
+}
+
+.showClear-block button {
+    width: 115px;
+    height: 40px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    margin-right: 6px;
+}
+
+#showBtn:hover, #clearFilterBtn:hover {
+    background-color: #888;
+}
+
+#showBtn:active, #clearFilterBtn:active {
+    background-color: #12C7B2;
+}
+
+
+/* Animations */
+@keyframes slideInTop{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0, 0);
+    }
+}
+.slide-top{
+    animation: .5s slideInTop ease-in-out 1;
+}
+
+
+/* Media */
+@media screen and (max-width: 700px) {
+}
+
+
+@media screen and (max-width: 550px) {
+}
+
