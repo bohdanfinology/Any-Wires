@@ -22,7 +22,6 @@
 		<link rel="stylesheet" href="./css/datepicker.min.css">
 		<script src="./js/datepicker.min.js"></script>
 		<script src="./js/datepicker.en.js"></script>
-		
 	</head>
 	<body>
 		<div id="burgerMenu">
@@ -78,16 +77,23 @@
 						</div>
 
 						<div class="filterStatus-block">
-							<select type="text">
-									<option value="Status" selected>Status</option>
+							<label for="filterStatus-block">Status</label>
+							<select id="filterStatus" type="text">
+									<option value="" selected></option>
 									<option value="Requested">Requested</option>
+									<option value="Sent">Sent</option>
+									<option value="Received">Received</option>
+									<option value="Declined">Declined</option>
 							</select>
 						</div>
 
 						<div class="filterBank-block">
-							<select type="text">
-									<option value="Bank" selected>Bank</option>
+							<label for="filterBank-block">Bank</label>
+							<select id="filterBank" type="text">
+									<option value="" selected></option>
 									<option value="AnyWires Bank">AnyWires Bank</option>
+									<option value="BNP Poland (EUR) VTK">BNP Poland (EUR) VTK</option>
+									<option value="DE Transferwise FinEdu EUR">DE Transferwise FinEdu EUR</option>
 							</select>
 						</div>
 						
@@ -105,16 +111,25 @@
 						</div>
 
 						<div class="filterMerchant-block">
-							<select type="text">
-									<option value="Merchant" selected>Merchant</option>
+							<label for="filterMerchant-block">Merchant</label>
+							<select id="filterMerchant" type="text">
+									<option value="" selected></option>
 									<option value="CK">CK</option>
+									<option value="CPM24">CPM24</option>
+									<option value="Popcorn">Popcorn</option>
+									<option value="CMP">CMP</option>
+									<option value="BU">BU</option>
+									<option value="FinixCapital">FinixCapital</option>
 							</select>
 						</div>
 
 						<div class="filterDocuments-block">
-							<select type="text">
-									<option value="Documents" selected>Documents</option>
-									<option value="All Verified">All Verified</option>
+							<label for="filterDocuments-block">Documents</label>
+							<select id="filterDocuments" type="text">
+									<option value="" selected></option>
+									<option value="All verified">All verified</option>
+									<option value="Pending verification">Pending verification</option>
+									<option value="Without documents">Without documents</option>
 							</select>
 						</div>
 
