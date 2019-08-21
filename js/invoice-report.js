@@ -349,7 +349,7 @@ class UsersList {
                 this.newArray = REPORTS.filter(element => element.Merchant === this.merchant);
             } else if(this.status != "Status" && this.merchant != "Merchant") {
                 this.newArray = REPORTS.filter(element => element.State === this.status && element.Merchant === this.merchant);
-            } else{
+            } else {
                 this.newArray = REPORTS.filter(element => element.State === this.status);
             }
             

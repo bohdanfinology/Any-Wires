@@ -204,6 +204,14 @@ tbody tr {
   color: white;
 }
 
+#previewBtn:hover {
+  background-color: #888;
+}
+
+#previewBtn:active {
+  background-color: #20A5F7;
+}
+
 .smallBoldText {
   font-size: 12px;
   font-weight: bold;
@@ -212,7 +220,7 @@ tbody tr {
 
 
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1070px) {
 
   table  *{
     position: relative;

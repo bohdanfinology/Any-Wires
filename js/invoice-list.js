@@ -2,51 +2,164 @@ const LIST = [{
     Created: "Jul 31, 2019",
     invoice_number: "#3459",
     Merchant: "GreatFxpro",
-    Name: "Jack Wilson",
-    Sent: 5000, 
-    Bank_fee: 0,
-    Received: 5000,
+    Name: "Margita Winther",
+    Sent: "€5000", 
+    Bank_fee: "€0",
+    Received: "€5000",
     Bank: "BNP Poland (EUR) VTK",
-    Available: 500,
-    Payment_status: "Available"
+    Available: "€500",
+    Payment_status: "Available",
+    ID: "true",
+    Utility_Bill: "false",
+    Payment_proof: "true",
+    Declaration: "undefined"
+},{
+    Created: "Jul 31, 2019",
+    invoice_number: "#3459",
+    Merchant: "BU",
+    Name: "Jette Odderskov",
+    Sent: "€5000", 
+    Bank_fee: "€0",
+    Received: "€5000",
+    Bank: "DE Transferwise FinEdu EUR",
+    Available: "€500",
+    Payment_status: "Declined",
+    ID: "",
+    Utility_Bill: "",
+    Payment_proof: "",
+    Declaration: "",
+    Document: "Without documents"
+},{
+    Created: "Jul 31, 2019",
+    invoice_number: "#3459",
+    Merchant: "CPM24",
+    Name: "Mariella Bonnier",
+    Sent: "€5000", 
+    Bank_fee: "€0",
+    Received: "€5000",
+    Bank: "BNP Poland (EUR) VTK",
+    Available: "€500",
+    Payment_status: "Received",
+    ID: "false",
+    Utility_Bill: "",
+    Payment_proof: "false",
+    Declaration: "false",
+    Document: "Pending verification"
+},{
+    Created: "Jul 31, 2019",
+    invoice_number: "#3459",
+    Merchant: "FinixCapital",
+    Name: "JJette Odderskov",
+    Sent: "€5000", 
+    Bank_fee: "€100",
+    Received: "€5000",
+    Bank: "BNP Poland (EUR) VTK",
+    Available: "€500",
+    Payment_status: "Requested",
+    ID: "true",
+    Utility_Bill: "true",
+    Payment_proof: "true",
+    Declaration: "true",
+    Document: "All verified"
+},{
+    Created: "Jul 31, 2019",
+    invoice_number: "#3459",
+    Merchant: "CMP",
+    Name: "Yastrebtsova Natalia",
+    Sent: "€5000", 
+    Bank_fee: "€0",
+    Received: "€5000",
+    Bank: "DE Transferwise FinEdu EUR",
+    Available: "€500",
+    Payment_status: "Declined",
+    ID: "",
+    Utility_Bill: "",
+    Payment_proof: "",
+    Declaration: "",
+    Document: "Without documents"
 },{
     Created: "Jul 31, 2019",
     invoice_number: "#3459",
     Merchant: "CMP",
     Name: "Jack Wilson",
-    Sent: 5000, 
-    Bank_fee: 0,
-    Received: 5000,
+    Sent: "€5000", 
+    Bank_fee: "€0",
+    Received: "€5000",
     Bank: "BNP Poland (EUR) VTK",
-    Available: 500,
-    Payment_status: "Declined"
+    Available: "€500",
+    Payment_status: "Received",
+    ID: "false",
+    Utility_Bill: "",
+    Payment_proof: "false",
+    Declaration: "false",
+    Document: "Pending verification"
 },{
     Created: "Jul 31, 2019",
     invoice_number: "#3459",
-    Merchant: "CMP",
-    Name: "Jack Wilson",
-    Sent: 5000, 
-    Bank_fee: 0,
-    Received: 5000,
+    Merchant: "CK",
+    Name: "Rudi Laukas",
+    Sent: "€5000", 
+    Bank_fee: "€100",
+    Received: "€5000",
     Bank: "BNP Poland (EUR) VTK",
-    Available: 500,
-    Payment_status: "Received"
-},{
-    Created: "Jul 31, 2019",
-    invoice_number: "#3459",
-    Merchant: "CMP",
-    Name: "Jack Wilson",
-    Sent: 5000, 
-    Bank_fee: 100,
-    Received: 5000,
-    Bank: "BNP Poland (EUR) VTK",
-    Available: 500,
-    Payment_status: "Requested"
+    Available: "€500",
+    Payment_status: "Requested",
+    ID: "true",
+    Utility_Bill: "true",
+    Payment_proof: "true",
+    Declaration: "true",
+    Document: "All verified"
 }];
 
 class invoiceList {
     constructor(){
+        this.clearFilterBtn = document.querySelector("#clearFilterBtn");
+        this.showFilterBtn = document.querySelector("#showBtn");
         this.render();
+    }
+
+    clearFilter = () => {
+        this.selets = document.querySelectorAll("select");
+        this.selets.forEach(item => item.value = "");
+        this.container = document.getElementById("table-list");
+        this.container.innerHTML = "";
+        this.loadUsers(LIST);
+    }
+
+    filterList = () => {
+        this.status = document.querySelector("#filterStatus").value;
+        this.bank = document.querySelector("#filterBank").value;
+        this.merchant = document.querySelector("#filterMerchant").value;
+        this.documents = document.querySelector("#filterDocuments").value;
+        
+        this.newArray = {};
+
+        this.bank === "" ?  "" : this.newArray.Bank = this.bank;
+        this.merchant === "" ?  "" : this.newArray.Merchant = this.merchant;
+        this.status === "" ?  "" : this.newArray.Payment_status = this.status;
+        this.documents === "" ? "" : this.newArray.Document = this.documents;
+
+        this.result = LIST.filter(item => 
+            Object.keys(this.newArray).every(key => 
+                item[key] === this.newArray[key])
+        );
+
+        this.container = document.getElementById("table-list");
+        this.container.innerHTML = "";
+
+        this.loadUsers(this.result);
+    }
+
+    checkDocuments = (doc) => {
+        if(doc === "true"){
+            return doc = `<i class="far fa-check-circle"></i>`;
+        } else if(doc === "false"){
+            return doc = `<i class="far fa-times-circle"></i>`;
+        } else if(doc === "undefined"){
+            return doc = `<i class="far fa-question-circle"></i>`;
+        } else {
+            return doc = `<img src="img/img_3975.png" alt="empty" width="20px" height="10px">`;
+        }
     }
 
     loadUsers(arr){
@@ -90,10 +203,10 @@ class invoiceList {
 
                     <td class="column10">
                         <div class="documentsIcon">
-                            <div>ID: <i class="far fa-times-circle"></i></div>
-                            <div>Utility Bill: <i class="far fa-check-circle"></i></div>
-                            <div>Payment proof: <i class="far fa-question-circle"></i></div>
-                            <div>Declaration: <i class="far fa-question-circle"></i></div>
+                            <div>ID: ${this.checkDocuments(item.ID)}</div>
+                            <div>Utility Bill: ${this.checkDocuments(item.Utility_Bill)}</div>
+                            <div>Payment proof: ${this.checkDocuments(item.Payment_proof)}</div>
+                            <div>Declaration: ${this.checkDocuments(item.Declaration)}</div>
                         </div>
                     </td>
 
@@ -115,6 +228,8 @@ class invoiceList {
 
     render(){
         this.loadUsers(LIST);
+        this.showFilterBtn.addEventListener("click", this.filterList);
+        this.clearFilterBtn.addEventListener("click", this.clearFilter);
     }
 };
 
