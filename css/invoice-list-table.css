@@ -212,7 +212,7 @@ tbody tr {
 
 
 
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 1030px) {
 
   table  *{
     position: relative;
@@ -276,17 +276,17 @@ tbody tr {
     content: "Payment status";
   }
   table tbody tr td:nth-child(10):before {
-    content: "";
-  }
-  table tbody tr td:nth-child(11):before {
     content: "Documents";
   }
+  table tbody tr td:nth-child(11):before {
+    content: "";
+  }
   table tbody tr td:nth-child(12):before {
-    content: "Preview";
+    content: "";
   }
  
 
-
+  .column11,
   .column4 {
     text-align: left;
   }
@@ -308,6 +308,25 @@ tbody tr {
 
   tbody tr {
     font-size: 13px;
+  }
+
+  .fa-file-signature {
+    margin-left: 0px;
+  }
+
+  .documentsIcon {
+    width: 30%;
+  }
+  .documentsIcon div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  #previewBtn{
+    width: 85px;
+    height: 40px;
   }
 }
 
