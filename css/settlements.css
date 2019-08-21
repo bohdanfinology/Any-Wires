@@ -83,44 +83,50 @@ main {
 
 /* TABLE */
 
-.tableSettlements {
-    text-align: center;
-    min-height: 600px;
-    padding: 50px 90px;
+#table-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin-top: 3px;
-    background-color: #FFF;
+    padding: 50px 70px;
+    background: #FFF;
 }
 
-.table {
+#dowloadPdf:hover{
+    filter: invert(75%);
+}
+#dowloadPdf:active{
+    filter: invert(95%);
+}
+
+.table-header {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
 }
 
-.tableSettlementsHead {
-    width: 15%;
-    background-color:  #20a5f7;
+.table-arrows img {
+    margin-left: 20px;
+    cursor: pointer;
+}
+.table-arrows img:hover{
+    filter: invert(75%);
+}
+.table-arrows img:active{
+    filter: invert(95%);
+}
+
+.table-header h2 {
     font-size: 20px;
-    color: #FFF;
-    
 }
 
-th {
-    font-weight: normal;
-}
-
-.column0, .column1, .column2, .column3, .column4, .column5 {
-    padding: 20px;
-}
-
-.tableList {
-    text-align: center;
-    width: 15%;
-    font-size: 16px;
-    font-weight: 700;
-    color: rgb(119, 114, 114);
-}
-
-.tableList .column6 {
-    background-color: rgba(219, 217, 217, 0.3);
+.table-line {
+    margin: 10px 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(102, 102, 102);
 }
 
 .tableList tr:hover {
@@ -128,21 +134,68 @@ th {
     cursor: pointer;
 }
 
-.receivedBtn {
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: 700;
-    background: rgb(0, 200, 81);
-    color: #FFF;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    z-index: 99;
-}
+table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  table td, table th {
+    padding-left: 8px;
+  }
+  table thead tr {
+    height: 60px;
+    background: #20a5f7;
+  }
+  table tbody tr {
+    height: 50px;
+  }
+  table tbody tr:last-child {
+    border: 0;
+  }
+  table td, table th {
+    text-align: center;
+  }
+  table td.l, table th.l {
+    text-align: center;
+  }
+  table td.c, table th.c {
+    text-align: center;
+  }
+  table td.r, table th.r {
+    text-align: center;
+  }
+  
+  
+  .table-head th{
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  tbody tr {
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
+  }
+  
+  .column0 {
+    padding-left: 20px;
+  }
 
-.receivedBtn:hover {
-    background: rgb(51, 51, 51);
-}
+  .column5 {
+    padding-right: 20px;
+  }
+
 
 /* Modal windows */
 
@@ -453,32 +506,6 @@ th {
         font-size: 16px;
     }
 
-/* TABLE */
-
-    .tableSettlements {
-        min-height: 600px;
-        padding: 50px 60px;
-    }
-
-    .tableSettlementsHead {
-        width: 15%;
-        font-size: 18px;
-    }
-
-    .column0, .column1, .column2, .column3, .column4, .column5 {
-        padding: 20px;
-    }
-
-    .tableList {
-        width: 15%;
-        font-size: 14px;
-    }
-
-    .receivedBtn {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-
 }
 
 @media (max-width: 999px) {
@@ -500,32 +527,6 @@ th {
     .btn {
         padding: 10px;
         font-size: 14px;
-    }
-
-    /* TABLE */
-
-    .tableSettlements {
-        min-height: 600px;
-        padding: 40px;
-    }
-
-    .tableSettlementsHead {
-        width: 15%;
-        font-size: 16px;
-    }
-
-    .column0, .column1, .column2, .column3, .column4, .column5 {
-        padding: 15px;
-    }
-
-    .tableList {
-        width: 15%;
-        font-size: 12px;
-    }
-
-    .receivedBtn {
-        padding: 10px 15px;
-        font-size: 12px;
     }
 
     /* Settlement Details Window */
@@ -618,31 +619,11 @@ th {
     }
 
     /* TABLE */
-
-    .tableSettlements {
-        min-height: 600px;
-        padding: 20px;
+    .table-header h2 {
+        font-size: 17px;
     }
 
-    .tableSettlementsHead {
-        width: 15%;
-        font-size: 12px;
-    }
-
-    .column0, .column1, .column2, .column3, .column4, .column5 {
-        padding: 10px;
-    }
-
-    .tableList {
-        width: 15%;
-        font-size: 11px;
-    }
-
-    .receivedBtn {
-        padding: 10px;
-        font-size: 11px;
-    }
-
+    
     /* Settlement Details Window */
 
     .settlementDetails-content {
@@ -785,30 +766,7 @@ th {
     }
 
     /* TABLE */
-
-    .tableSettlements {
-        min-height: 600px;
-        padding: 10px;
-    }
-
-    .tableSettlementsHead {
-        width: 15%;
-        font-size: 10px;
-    }
-
-    .column0, .column1, .column2, .column3, .column4, .column5 {
-        padding: 5px;
-    }
-
-    .tableList {
-        width: 15%;
-        font-size: 10px;
-    }
-
-    .receivedBtn {
-        padding: 5px;
-        font-size: 10px;
-    }
+    
 
     /* Settlement Details Window */
 
@@ -953,29 +911,7 @@ th {
 
     /* TABLE */
 
-    .tableSettlements {
-        min-height: 600px;
-        padding: 5px;
-    }
-
-    .tableSettlementsHead {
-        width: 15%;
-        font-size: 9px;
-    }
-
-    .column0, .column1, .column2, .column3, .column4, .column5 {
-        padding: 3px;
-    }
-
-    .tableList {
-        width: 15%;
-        font-size: 7px;
-    }
-
-    .receivedBtn {
-        padding: 5px;
-        font-size: 7px;
-    }
+    
 
     /* Settlement Details Window */
 
@@ -1095,5 +1031,110 @@ th {
         margin: 5px;
         height: 15px;
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    table  *{
+      position: relative;
+    }
+    table {
+      display: block;
+    }
+    table > *, table tr, table td, table th {
+      display: block;
+    }
+    table thead {
+      display: none;
+    }
+    table tbody tr {
+      height: auto;
+      padding: 37px 0;
+    }
+    table tbody tr td {
+      padding-left: 45% !important;
+      margin-bottom: 24px;
+    }
+    table tbody tr td:last-child {
+      margin-bottom: 0;
+    }
+    table tbody tr td:before {
+      
+      color: #999999;
+      line-height: 1.2;
+      font-weight: unset;
+      position: absolute;
+      width: 40%;
+      left: 30px;
+      top: 0;
+    }
+  
+    table tbody tr td:nth-child(0):before {
+      content: "Created By";
+    }
+    table tbody tr td:nth-child(1):before {
+      content: "Date";
+    }
+    table tbody tr td:nth-child(2):before {
+      content: "Amount Sent";
+    }
+    table tbody tr td:nth-child(3):before {
+      content: "Type";
+    }
+    table tbody tr td:nth-child(4):before {
+      content: "Wallet";
+    }
+    table tbody tr td:nth-child(5):before {
+      content: "Status";
+    }
+  
+    .column4,
+    .column5 {
+      text-align: left;
+    }
+  
+    .column4,
+    .column5,
+    .column1,
+    .column2,
+    .column3,
+    .column6 {
+      width: 100%;
+    }
+    
+  
+    tbody tr {
+      font-size: 13px;
+    }
+  
+    #merchantButtons {
+      padding-right: 5px;
+    }
+  }
+
+  @media screen and (max-width: 490px) {
+    #table-block {
+        width: 95%;
+    }
+    
+    .table-header h2 {
+        font-size: 15px;
+    }
+    .table-arrows img {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .table-line {
+        margin: 0;
+    }
+    #table-block {
+        padding: 40px 0;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .table-header h2 {
+        font-size: 14px;
     }
 }

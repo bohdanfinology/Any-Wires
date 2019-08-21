@@ -152,7 +152,7 @@ class SettlementsList {
         list.slice(0, list.length).forEach((item, i) => {
             this.settleList = document.createElement("tr");
             this.settleList.className = `tr${i}`;
-            if (item.Status !== 'Received') {
+            
                 this.settleList.innerHTML =  `
                 <td class="col column0">${item.CreatedBy}</td> 
                 <td class="col column1">${item.Date}</td> 
@@ -160,19 +160,7 @@ class SettlementsList {
                 <td class="col column3">${item.Type}</td> 
                 <td class="col column4">${item.Wallet}</td> 
                 <td class="col column5">${item.Status}</td>
-                <td class="column6"><button class="receivedBtn">Received</button></td>
             `;
-            } else {
-                this.settleList.innerHTML =  `
-                <td class="col column0">${item.CreatedBy}</td> 
-                <td class="col column1">${item.Date}</td> 
-                <td class="col column2">${item.Amount}</td> 
-                <td class="col column3">${item.Type}</td> 
-                <td class="col column4">${item.Wallet}</td> 
-                <td class="col column5">${item.Status}</td>
-                <th class="column6"></th>
-            `;
-            }
 
         this.settleList.addEventListener('click', (e) => {
             e.preventDefault();
@@ -207,16 +195,16 @@ class SettlementsList {
         statusCells.forEach( (i) => {
             switch (i.textContent + '') {
                 case 'Received':
-                    i.style.background = 'rgb(0, 200, 81)';
+                    i.style.color = 'rgb(0, 200, 81)';
                     break;
                 case 'Declined':
-                    i.style.background = 'rgb(255, 119, 119)';
+                    i.style.color = 'rgb(255, 119, 119)';
                     break;
                 case 'Requested':
-                    i.style.background = '#5cb9f3';
+                    i.style.color = '#5cb9f3';
                     break;
                 case 'Sent':
-                    i.style.background = '#f48120';
+                    i.style.color = '#f48120';
                     break;
             }
         });
@@ -244,7 +232,7 @@ class SettlementsList {
         this.colorStatus();
     }
 };
-
+const settlementsList1 = new SettlementsList();
 
 // FILTER
 
