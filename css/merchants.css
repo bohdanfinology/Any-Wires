@@ -447,12 +447,13 @@ table input {
     #modal-view {
         flex-direction: column;
         width: 250px;
-        top:10px;
+        top: 10px;
         height: auto;
+        padding: 15px;
     }
 
     .buttonSave {
-        margin-top: 15px;
+        margin-top: 0px;
         height: 40px;
         width: 80px;
     }
