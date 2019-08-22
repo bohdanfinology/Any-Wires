@@ -127,7 +127,7 @@ main {
     margin-top: 5px;
 }
 
-select {
+#period {
     width: 100%;
     height: 40px;
     border: 1px solid rgb(189, 189, 189);

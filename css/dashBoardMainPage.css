@@ -60,7 +60,7 @@ main {
     flex-direction: column;
     align-items: flex-end;
     padding: 20px 0;
-    padding-right: 70px;
+    width: 200px;
 }
 
 .merchantName {
@@ -69,22 +69,16 @@ main {
     font-size: 28px;
 }
 
-select {
+#period {
     width: 100%;
     padding: 5px 5px;
     height: 40px;
-    border: 1px solid rgb(189, 189, 189);
     cursor: pointer;
-    border-radius: 3px;
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Frank Ruhl Libre', serif;
-    background-color: #F5F5F5;
     margin-top: 5px;
     text-indent: 15px;
-}
-option {
-    font-size: 16px;
-    background-color: rgb(255, 255, 255);
+    border-color: #12C7B2;
 }
 
 .headerBlock {
