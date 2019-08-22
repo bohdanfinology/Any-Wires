@@ -220,7 +220,7 @@ tbody tr {
 
 
 
-@media screen and (max-width: 1070px) {
+@media screen and (max-width: 1125px) {
 
   table  *{
     position: relative;
@@ -334,14 +334,19 @@ tbody tr {
 
   #previewBtn{
     width: 85px;
-    height: 40px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  #viewReport-btn {
-    width: 85px;
     height: 35px;
   }
 }
 
+
+@media screen and (max-width: 700px) {
+  .documentsIcon {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .documentsIcon {
+    width: 80%;
+  }
+}
