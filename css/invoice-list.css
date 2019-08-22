@@ -284,10 +284,123 @@ label {
 
 
 /* Media */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1125px) {
+    header {
+        padding: 20px 0 20px 60px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .byCreation-block, .filterStatus-block, .filterBank-block, .byReceive-block, .filterMerchant-block, .filterDocuments-block {
+        width: 160px;
+    }
+
+    select {
+        height: 35px;
+    }
+
+    .dateForm {
+        font-size: 12px;
+        padding: 2px;
+        height: 35px;
+    }
+
+    .input-search {
+        width: 180px;
+        height: 35px;
+    }
+
+    .search-btn {
+        height: 35px;
+        width: 35px;
+        padding: 10px;
+    }
+
+    #clearFilterBtn, #showBtn {
+        width: 100px;
+        height: 35px;
+    }
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 578px) {
+    header {
+        padding: 20px 0 20px 30px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .filterBlock-first, .filterBlock-second {
+        justify-content: space-between;
+    }
+
+    .byCreation-block, .filterStatus-block, .filterBank-block, .byReceive-block, .filterMerchant-block, .filterDocuments-block {
+        width: 140px;
+        margin-right: 0;
+    }
+
+    select, .dateForm {
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .input-search {
+        width: 140px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .search-btn {
+        height: 32px;
+        width: 32px;
+        padding: 9px;
+    }
+
+    #clearFilterBtn, #showBtn {
+        width: 90px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
 }
 
+@media screen and (max-width: 490px) {
+    .filterBlock-first, .filterBlock-second {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .byCreation-block, .filterStatus-block, .filterBank-block, .byReceive-block, .filterMerchant-block, .filterDocuments-block {
+        width: 210px;
+        margin-right: 0;
+    }
+
+    .showClear-block {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .searchBlock {
+        margin-top: 10px;
+    }
+
+    .input-search {
+        width: 158px;
+    }
+
+    #clearFilterBtn {
+        margin-right: 0;
+    }
+}
