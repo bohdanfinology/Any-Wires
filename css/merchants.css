@@ -447,7 +447,7 @@ table input {
     #modal-view {
         flex-direction: column;
         width: 250px;
-        top:50px;
+        top:10px;
         height: auto;
     }
 
