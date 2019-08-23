@@ -6,7 +6,7 @@ const USERS = [{
     Last_login_date: "Jul 7, 2019"
 },{
     Name: "Jack Wilson",
-    Email: "jack.wilson@brokers.expert",
+    Email: "france@brokers.expert",
     Merchant: "",
     Role: "", 
     Last_login_date: "Apr 10, 2019"
@@ -14,41 +14,41 @@ const USERS = [{
     Name: "Mark Novak",
     Email: "mark.n@cryptopmarket.com",
     Merchant: "Omer",
-    Role: "Affiliate", 
+    Role: "Brank", 
     Last_login_date: "Apr 9, 2019"
 },{
-    Name: "Dan Aff",
+    Name: "Darina Smith",
     Email: "dan@bitsale.com",
     Merchant: "",
     Role: "Affiliate", 
     Last_login_date: "Jun 28, 2019"
 },{
-    Name: "Dan Aff",
-    Email: "dan@bitsale.com",
+    Name: "Alexa Bauman",
+    Email: "eagl@bitsale.com",
     Merchant: "",
-    Role: "Affiliate", 
+    Role: "Ceclen", 
     Last_login_date: "Jun 28, 2019"
 },{
-    Name: "Jack Wilson",
+    Name: "Clime Michael",
     Email: "jack.wilson@brokers.expert",
     Merchant: "",
     Role: "", 
     Last_login_date: "Apr 10, 2019"
 },{
-    Name: "Mark Novak",
-    Email: "mark.n@cryptopmarket.com",
+    Name: "Zayan Le Blank",
+    Email: "arra.n@cryptopmarket.com",
     Merchant: "Omer",
-    Role: "Affiliate", 
+    Role: "New", 
     Last_login_date: "Apr 9, 2019"
 },{
-    Name: "Dan Aff",
-    Email: "dan@bitsale.com",
+    Name: "Alice Blair",
+    Email: "bruce@bitsale.com",
     Merchant: "",
-    Role: "Affiliate", 
+    Role: "Admin", 
     Last_login_date: "Jun 28, 2019"
 },{
-    Name: "Dan Aff",
-    Email: "dan@bitsale.com",
+    Name: "Bruce Willis",
+    Email: "corc@bitsale.com",
     Merchant: "",
     Role: "Affiliate", 
     Last_login_date: "Jun 28, 2019"
@@ -56,10 +56,46 @@ const USERS = [{
 
 class UsersList {
     constructor(){
+        this.sortNameBtnUp = document.querySelectorAll(".sortUp");
+        this.sortNameBtnDown = document.querySelectorAll(".sortDown");
         this.buttonSearch = document.getElementById("search-button");
         this.createUser_btn = document.querySelector("#createUser-button");
         this.buttonPdf = document.querySelector("#dowloadPdf");
         this.render();
+    }
+
+    hideSortBtn = () => {
+        
+    }
+
+    sortArrDown = (arr, key) => {
+        this.sortByValue = arr.slice(0);
+        this.key = key;
+        this.sortByValue.sort((a,b) => {
+            var x = a[this.key].toLowerCase();
+            var y = b[this.key].toLowerCase();
+            return x < y ? -1 : x > y ? 1 : 0;
+        });
+
+        this.container = document.querySelector("#table-list");
+        this.container.innerHTML = "";
+
+        this.loadUsers(this.sortByValue);
+    }
+
+    sortArrUp = (arr, key) => {
+        this.sortByValue = arr.slice(0);
+        this.key = key;
+        this.sortByValue.sort((a,b) => {
+            var x = a[this.key].toLowerCase();
+            var y = b[this.key].toLowerCase();
+            return x < y ? 1 : x > y ? -1 : 0;
+        });
+
+        this.container = document.querySelector("#table-list");
+        this.container.innerHTML = "";
+
+        this.loadUsers(this.sortByValue);
     }
 
     downloadPdf(){
@@ -140,9 +176,9 @@ class UsersList {
         }
     }
 
-    loadUsers(){
+    loadUsers = (arr) => {
         this.container = document.getElementById("table-list");
-        USERS.forEach((item) => {
+        arr.forEach((item) => {
             item.Merchant === "" ? item.Merchant = "—" : item.Merchant;
             item.Name === "" ? item.Name = "—" : item.Name;
             item.Email === "" ? item.Email = "—" : item.Email;
@@ -163,11 +199,34 @@ class UsersList {
     }
 
     render(){
-        this.loadUsers();
+        this.loadUsers(USERS);
         this.hideBlock();
         this.buttonSearch.addEventListener("click", this.searchFunction);
         this.createUser_btn.addEventListener("click", this.createUser);
         this.buttonPdf.addEventListener("click", this.downloadPdf);
+        this.hideSortBtn();
+
+        this.sortNameBtnDown.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                this.value = btn.closest("th").innerText.trim();
+                this.sortArrDown(USERS, this.value);
+
+                this.toggleBtn = btn.closest('th').children[0];
+                this.toggleBtn.style.display = "inline-block";
+                btn.style.display = "none";
+            });
+        });
+
+        this.sortNameBtnUp.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                this.value = btn.closest("th").innerText.trim();
+                this.sortArrUp(USERS, this.value );
+
+                this.toggleBtn = btn.closest('th').children[1];
+                this.toggleBtn.style.display = "inline-block";
+                btn.style.display = "none";
+            });
+        })
     }
 };
 

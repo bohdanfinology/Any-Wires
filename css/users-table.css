@@ -40,6 +40,7 @@ table td.r, table th.r {
   color: #fff;
   line-height: 1.2;
   font-weight: unset;
+  user-select: none;
 }
 
 tbody tr:nth-child(even) {
@@ -75,6 +76,24 @@ tbody tr {
   width: 222px;
   text-align: right;
   padding-right: 40px;
+}
+
+.sortUp {
+  display: none;
+}
+
+.fa-sort-alpha-down, .fa-sort-alpha-down-alt {
+  font-size: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.fa-sort-alpha-down:hover, .fa-sort-alpha-down-alt:hover {
+  color: #808080;
+}
+
+.fa-sort-alpha-down:active, .fa-sort-alpha-down-alt:active {
+  color: white;
 }
 
 
