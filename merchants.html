@@ -14,13 +14,12 @@
 		<link rel="stylesheet" type="text/css" href="css/menu-comp.css" />
 		<link rel="stylesheet" type="text/css" href="css/merchants-table.css">
 		<link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-		<script src="https://unpkg.com/jspdf@1.5.3/dist/jspdf.min.js"></script>
-		<script src="https://unpkg.com/jspdf-autotable@3.1.4/dist/jspdf.plugin.autotable.js"></script>
 		
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="js/modernizr.custom.js"></script>
-	</head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.1/xlsx.full.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+		
 	<body>
 		<div id="burgerMenu">
 			<div class="menu">
@@ -73,7 +72,7 @@
 				<div id="table-block">
 					<div class="table-header">
 						<h2>All Merchants List</h2>
-						<img title="Download .pdf" id="dowloadPdf" src="./img/download.png" alt="arrow right table" width="15px" height="15px"/>
+						<img title="Download .xls" id="dowloadXls" src="./img/download.png" alt="arrow right table" width="15px" height="15px"/>
 					</div>
 
 					<div class="table-line "></div>

@@ -65,34 +65,34 @@ const USERS = [{
 
 class UsersList {
     constructor(){
+        this.btnExel = document.querySelector("#dowloadXls");
         this.buttonSearch = document.getElementById("search-button");
-        this.buttonPdf = document.querySelector("#dowloadPdf");
         this.render();
     }
 
-    downloadPdf(){
-        // For hide not useless element jsPDF
+    saveXls = () => {
+        // For hide not useless element XLS
         let col6 = document.querySelectorAll(".column6");
         col6.forEach((item) => item.style.display = "none");
-
         setTimeout(() => {
             col6.forEach((item) => item.style.display = "table-cell");
         },10);
-        // For hide not useless element jsPDF
-        
-        var doc = new jsPDF();
+        // For hide not useless element XLS
 
-        doc.autoTable({
-            html: '#main-table', 
-            theme: 'striped',  
-            tableWidth: 208, 
-            margin: {top: 1, left: 1, right: 1}, 
-            columnStyles: {
-                0: {halign: 'left', cellWidth: 30},
-                5: {halign: 'center', cellWidth: 30}
-            }
+        var tbl = document.getElementById('main-table');
+        var wb = XLSX.utils.table_to_book(tbl, {
+            sheet: "Merchants table",
+            display: true
         });
-        doc.save('table.pdf');
+
+        var wbout = XLSX.write(wb, {bookType: "xlsx", bookSST: true, type: "binary"});
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        };
+        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Merchants_table.xlsx');
     }
 
     searchFunction(){
@@ -142,7 +142,7 @@ class UsersList {
     render(){
         this.loadUsers(USERS);
         this.buttonSearch.addEventListener("click", this.searchFunction);
-        this.buttonPdf.addEventListener("click", this.downloadPdf);
+        this.btnExel.addEventListener("click", this.saveXls);
     }
 };
 
@@ -227,6 +227,7 @@ class view {
                     this.buttonSave = document.createElement("button");
                     this.buttonSave.textContent = "Save";
                     this.buttonSave.classList.add("buttonSave");
+                    this.buttonSave.classList.add("btnSaveCorrect");
                     this.container.appendChild(this.buttonSave);
 
                     
@@ -412,3 +413,36 @@ class view {
 }
 
 const View = new view();
+
+
+// exportToExel = (tableID, filename="") => {
+//     var downloadLink;
+//     var dataType = "application/vnd.ms-excel";
+//     var tableSelect = document.getElementById("main-table");
+//     var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+
+//     filename = filename?filename+".xls":"merchants_table.xls";
+    
+//     downloadLink = document.createElement("a");
+//     document.body.appendChild(downloadLink);
+
+//     if(navigator.msSaveOrOpenBlob){
+//         var blob = new Blob(["\ufeff", tableHTML],{
+//             type: dataType
+//         });
+//         navigator.msSaveOrOpenBlob(blob, filename);
+//     } else{
+//         downloadLink.href = 'data:' + dataType + "," + tableHTML;
+
+//         downloadLink.download = filename;
+
+//         downloadLink.click();
+//     }
+// }
+
+// var btnExel = document.querySelector("#dowloadXls");
+// btnExel.addEventListener("click", () => {
+//     exportToExel("main-table");
+// });
+
+

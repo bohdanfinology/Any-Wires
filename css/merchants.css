@@ -45,7 +45,7 @@ body button:hover {
     background-color: rgb(143, 143, 143);
 }
 body button:active {
-    background-color: rgb(231, 66, 44);
+    background-color: #20a5f7;
 }
 
 
@@ -158,10 +158,14 @@ main {
     padding: 70px 0;
 }
 
-#dowloadPdf:hover{
+
+#dowloadXls {
+    cursor: pointer;
+}
+#dowloadXls:hover{
     filter: invert(75%);
 }
-#dowloadPdf:active{
+#dowloadXls:active{
     filter: invert(95%);
 }
 
@@ -198,8 +202,12 @@ main {
 .buttonView {
     width: 100px;
     height: 45px;
-    background-color: #E6BA5C;
+    background-color: #12C7B2;
     margin-right: 5px;
+}
+
+.buttonView:active {
+    background-color: #20a5f7;
 }
 
 .buttonAddSettle {
@@ -273,7 +281,11 @@ table input {
     height: 50px;
     width: 100px;
     margin-top: 155px;
-    background-color: green;
+    background-color: #12C7B2;
+}
+
+.btnSaveCorrect {
+    margin-top: 80px;
 }
 
 

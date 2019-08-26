@@ -10,18 +10,19 @@
     display: inline-block;
     margin-top: 50px;
     margin-left: 90%;
-    background: rgb(51, 51, 51);
+    background: #12C7B2;
     color: #FFF;
     padding: 15px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 20px;
     outline: none;
     text-decoration: none;
+    transition: .35s;
 }
 
 .backToMain:hover {
-    background: rgb(0, 200, 81);
+    background: rgb(143, 143, 143);
 }
 
 .fas {
@@ -109,13 +110,15 @@ hr {
     color: #FFF;
     padding: 15px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 24px;
     outline: none;
+    cursor: pointer;
+    transition: .35s;
 }
 
 .invoiceBtn:hover {
-    background: rgb(51, 51, 51);
+    background:rgb(143, 143, 143);
 }
 
 /* SCROLL STYLE */
