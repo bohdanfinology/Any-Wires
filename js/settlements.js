@@ -144,6 +144,8 @@ var newSettleList = [];
 
 class SettlementsList {
     constructor(){
+        this.buttonSearch = document.querySelector('.search-btn');
+        this.searchInput =  document.querySelector('.input-search');
         this.render();
     }
 
@@ -226,10 +228,35 @@ class SettlementsList {
         });        
     }
 
+    searchFunction() {
+        let table = document.getElementById('main-table');
+        let phrase = document.querySelector('.input-search').value.toLowerCase();
+        for (var i = 1; i < table.rows.length; i++) {
+            var flag = false;
+            for (var j = 0; j < 6; j++) {
+                var item = table.rows[i].cells[j].textContent.toLowerCase();
+                if (item.includes(phrase)) flag = true;
+            }
+            if (!flag) {
+                table.rows[i].style.display = "none";
+            }
+        }
+    }
+
+    keyPressSearch() {
+        this.searchInput.addEventListener('keydown', (event) => {
+            if (event.key == "Enter") {
+               this.searchFunction();
+            }
+        });
+    }
+
     render(){
         this.loadSettle(SETTLEMENTS);
         this.changeStatus();
         this.colorStatus();
+        this.buttonSearch.addEventListener("click", this.searchFunction);
+        this.keyPressSearch();
     }
 };
 const settlementsList1 = new SettlementsList();
@@ -241,9 +268,9 @@ class FilterList extends SettlementsList {
     filter() {
         let statusMenu = document.querySelector('.status');
         let merchantList = document.querySelector('.merchantList');
+        let date =  document.querySelector('.dateForm').value;
         let claim1 = statusMenu.options[statusMenu.selectedIndex].value;
         let claim2 = merchantList.options[merchantList.selectedIndex].value;
-
         if (claim1 && claim2) {
             newSettleList = SETTLEMENTS.filter( (i) => {
                 return (i.Status == claim1) && (i.CreatedBy == claim2);

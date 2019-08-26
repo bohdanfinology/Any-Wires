@@ -15,6 +15,10 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <link rel="stylesheet" type="text/css" href="css/menu-comp.css" />
     <script src="js/modernizr.custom.js"></script>
+    <!-- For Calendar Inputs -->
+		<link rel="stylesheet" href="./css/datepicker.min.css">
+		<script src="./js/datepicker.min.js"></script>
+		<script src="./js/datepicker.en.js"></script>
 </head>
 
 <body>
@@ -54,63 +58,93 @@
             <h1 class="mainTitle"><span class="affiliateReportlogo"></span><i class="fas fa-coins"></i></span>Settlements</h1> 
         </div>
 
-        <div class="optionsMenu">
-            <select name="status" class="status">
-                <option value="">Choose a state</option>
-                <option value="Requested">Requested</option>
-                <option value="Sent">Sent</option>
-                <option value="Received">Received</option>
-                <option value="Declined">Declined</option>
-            </select>
-            <select class="merchantList">
-                <option value="">Choose a merchant</option>
-                <option value="CK">CK</option>
-                <option value="CMP24">CMP24</option>
-                <option value="GigaFX">GigaFX</option>
-                <option value="Omer">Omer</option>
-                <option value="CFM Solutions">CFM Solutions</option>
-                <option value="Lions">Lions</option>
-                <option value="English">English</option>
-                <option value="TurboF">TurboF</option>
-                <option value="BU">BU</option>
-                <option value="ESP">ESP</option>
-                <option value="ScaleApps">ScaleApps</option>
-                <option value="MarketsCFD">MarketsCFD</option>
-                <option value="TradeFXHub">TradeFXHub</option>
-                <option value="QTeck">QTeck</option>
-                <option value="60op">60op</option>
-                <option value="GlobalFin">GlobalFin</option>
-                <option value="Click2Sell">Click2Sell</option>
-                <option value="BitSale">BitSale</option>
-                <option value="XTrade">XTrade</option>
-                <option value="Aro Trade">Aro Trade</option>
-                <option value="Get Bits">Get Bits</option>
-                <option value="Popcorn">Popcorn</option>
-                <option value="GreatFXpro">GreatFXpro</option>
-                <option value="Los Diablos">Los Diablos</option>
-                <option value="TiRex">TiRex</option>
-                <option value="AspenHolding">AspenHolding</option>
-                <option value="MaxiPartners">MaxiPartners</option>
-                <option value="SWGMarkets">SWGMarkets</option>
-                <option value="Dax-300">Dax-300</option>
-                <option value="Stox-50">Stox-50</option>
-                <option value="MTC Brokers">MTC Brokers</option>
-                <option value="FinixCapital">FinixCapital</option>
-                <option value="CertusFinance">CertusFinance</option>
-                <option value="DiamondGroup">DiamondGroup</option>
-                <option value="F15">F15</option>
-                <option value="TradeWell.io">TradeWell.io</option>
-                <option value="Boxinvesting">Boxinvesting</option>
-                <option value="Imperial">Imperial</option>
-                <option value="Test">Test</option>
-                <option value="Ainvestments">Ainvestments</option>
-                <option value="DiamondGroup">IB Albania</option>
-            </select>
-            <button class="btn filterBtn">Filter</button>
-            <button class="btn showAllBtn">Show All</button>
-            <button class="btn merchPayBtn">Merch Pay</button>
-            <button class="btn payFromAwWalletBtn">Pay from AW Wallet</button>
-            <button class="btn settleTransfBtn">Settle Transfers</button>
+        <div class="header-menu">
+            <div class="filterBlock-first">
+                <div class="byCreation-block" >
+                    <label for="byCreation-block">Date</label>
+                    <input class="dateForm datepicker-here" data-multiple-dates-separator="—" 
+                                                            data-range="true"
+                                                            data-language="en"
+                                                            type="text" 
+                                                            placeholder="Jul 01, 2019 — Aug 01, 2019">
+                </div>
+                
+                <div class="filterStatus-block">
+                    <label for="filterStatus-block">Status</label>
+                    <select name="status" class="status" id="filterStatus">
+                        <option value="" ></option>
+                        <option value="Requested">Requested</option>
+                        <option value="Sent">Sent</option>
+                        <option value="Received">Received</option>
+                        <option value="Declined">Declined</option>
+                    </select>
+                </div>
+
+                <div class="filterBank-block">
+                    <div class="filterMerchant-block">
+                        <label for="filterMerchant-block">Merchant</label>
+                        <select class="merchantList"  id="filterMerchant">
+                            <option value=""></option>
+                            <option value="CK">CK</option>
+                            <option value="CMP24">CMP24</option>
+                            <option value="GigaFX">GigaFX</option>
+                            <option value="Omer">Omer</option>
+                            <option value="CFM Solutions">CFM Solutions</option>
+                            <option value="Lions">Lions</option>
+                            <option value="English">English</option>
+                            <option value="TurboF">TurboF</option>
+                            <option value="BU">BU</option>
+                            <option value="ESP">ESP</option>
+                            <option value="ScaleApps">ScaleApps</option>
+                            <option value="MarketsCFD">MarketsCFD</option>
+                            <option value="TradeFXHub">TradeFXHub</option>
+                            <option value="QTeck">QTeck</option>
+                            <option value="60op">60op</option>
+                            <option value="GlobalFin">GlobalFin</option>
+                            <option value="Click2Sell">Click2Sell</option>
+                            <option value="BitSale">BitSale</option>
+                            <option value="XTrade">XTrade</option>
+                            <option value="Aro Trade">Aro Trade</option>
+                            <option value="Get Bits">Get Bits</option>
+                            <option value="Popcorn">Popcorn</option>
+                            <option value="GreatFXpro">GreatFXpro</option>
+                            <option value="Los Diablos">Los Diablos</option>
+                            <option value="TiRex">TiRex</option>
+                            <option value="AspenHolding">AspenHolding</option>
+                            <option value="MaxiPartners">MaxiPartners</option>
+                            <option value="SWGMarkets">SWGMarkets</option>
+                            <option value="Dax-300">Dax-300</option>
+                            <option value="Stox-50">Stox-50</option>
+                            <option value="MTC Brokers">MTC Brokers</option>
+                            <option value="FinixCapital">FinixCapital</option>
+                            <option value="CertusFinance">CertusFinance</option>
+                            <option value="DiamondGroup">DiamondGroup</option>
+                            <option value="F15">F15</option>
+                            <option value="TradeWell.io">TradeWell.io</option>
+                            <option value="Boxinvesting">Boxinvesting</option>
+                            <option value="Imperial">Imperial</option>
+                            <option value="Test">Test</option>
+                            <option value="Ainvestments">Ainvestments</option>
+                            <option value="DiamondGroup">IB Albania</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="showClear-block">
+                <div class="buttonsBlock">
+                    <button class="btn filterBtn">Show</button>
+                    <button class="btn showAllBtn">Clear</button>
+                    <button class="btn merchPayBtn">Merch Pay</button>
+                    <button class="btn payFromAwWalletBtn">Pay from AW Wallet</button>
+                    <button class="btn settleTransfBtn">Settle Transfers</button>
+                </div>
+                <div class="searchBlock">
+                    <input class="input-search" type="search" placeholder="Search..."/>
+                    <img class="search-btn" src="./img/magnifying-glass.png" alt="Image Search">
+                </div>
+            </div>
         </div>
         
         <div id="table-block">
