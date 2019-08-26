@@ -92,7 +92,7 @@ class UsersList {
             for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
             return buf;
         };
-        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'Merchants_table.xlsx');
+        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'merchants_table.xlsx');
     }
 
     searchFunction(){

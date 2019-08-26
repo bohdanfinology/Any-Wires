@@ -1,11 +1,13 @@
 const LIST = [{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#3451",
     Merchant: "GreatFxpro",
     Name: "Margita Winther",
     Sent: "€5000", 
+    Sent_date:"Aug 18, 2019",
     Bank_fee: "€0",
     Received: "€5000",
+    Received_date: "Aug 19, 2019",
     Bank: "BNP Poland (EUR) VTK",
     Available: "€500",
     Payment_status: "Available",
@@ -15,12 +17,14 @@ const LIST = [{
     Declaration: "undefined"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#3452",
     Merchant: "BU",
     Name: "Jette Odderskov",
     Sent: "€5000", 
+    Sent_date:"Aug 9, 2019",
     Bank_fee: "€0",
     Received: "€5000",
+    Received_date: "Aug 10, 2019",
     Bank: "DE Transferwise FinEdu EUR",
     Available: "€500",
     Payment_status: "Declined",
@@ -31,12 +35,14 @@ const LIST = [{
     Document: "Without documents"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#3453",
     Merchant: "CPM24",
     Name: "Mariella Bonnier",
     Sent: "€5000", 
+    Sent_date:"Jul 8, 2019",
     Bank_fee: "€0",
     Received: "€5000",
+    Received_date: "Aug 9, 2019",
     Bank: "BNP Poland (EUR) VTK",
     Available: "€500",
     Payment_status: "Received",
@@ -47,12 +53,14 @@ const LIST = [{
     Document: "Pending verification"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#3454",
     Merchant: "FinixCapital",
     Name: "JJette Odderskov",
     Sent: "€5000", 
+    Sent_date:"Jul 16, 2019",
     Bank_fee: "€100",
     Received: "€5000",
+    Received_date: "Aug 17, 2019",
     Bank: "BNP Poland (EUR) VTK",
     Available: "€500",
     Payment_status: "Requested",
@@ -63,12 +71,14 @@ const LIST = [{
     Document: "All verified"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#3251",
     Merchant: "CMP",
     Name: "Yastrebtsova Natalia",
     Sent: "€5000", 
+    Sent_date:"Jul 11, 2019",
     Bank_fee: "€0",
     Received: "€5000",
+    Received_date: "Jul 12, 2019",
     Bank: "DE Transferwise FinEdu EUR",
     Available: "€500",
     Payment_status: "Declined",
@@ -79,12 +89,14 @@ const LIST = [{
     Document: "Without documents"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#1241",
     Merchant: "CMP",
     Name: "Jack Wilson",
     Sent: "€5000", 
+    Sent_date:"Jul 18, 2019",
     Bank_fee: "€0",
     Received: "€5000",
+    Received_date: "Jul 19, 2019",
     Bank: "BNP Poland (EUR) VTK",
     Available: "€500",
     Payment_status: "Received",
@@ -95,12 +107,14 @@ const LIST = [{
     Document: "Pending verification"
 },{
     Created: "Jul 31, 2019",
-    invoice_number: "#3459",
+    invoice_number: "#5478",
     Merchant: "CK",
     Name: "Rudi Laukas",
     Sent: "€5000", 
+    Sent_date:"Jul 1, 2019",
     Bank_fee: "€100",
     Received: "€5000",
+    Received_date: "Jul 2, 2019",
     Bank: "BNP Poland (EUR) VTK",
     Available: "€500",
     Payment_status: "Requested",
@@ -113,9 +127,40 @@ const LIST = [{
 
 class invoiceList {
     constructor(){
+        this.btnExel = document.querySelector("#dowloadXls");
         this.clearFilterBtn = document.querySelector("#clearFilterBtn");
         this.showFilterBtn = document.querySelector("#showBtn");
         this.render();
+    }
+
+    saveXls = () => {
+        // For hide not useless element XLS
+        let col12 = document.querySelectorAll(".column12");
+        col12.forEach((item) => item.style.display = "none");
+
+        let col11 = document.querySelectorAll(".colum11");
+        col11.forEach((item) => item.style.display = "none");
+
+        setTimeout(() => {
+            col12.forEach((item) => item.style.display = "table-cell");
+            col11.forEach((item) => item.style.display = "table-cell");
+        },10);
+        // For hide not useless element XLS
+
+        var tbl = document.getElementById('table-user');
+        var wb = XLSX.utils.table_to_book(tbl, {
+            sheet: "Invoice list table",
+            display: true
+        });
+
+        var wbout = XLSX.write(wb, {bookType: "xlsx", bookSST: true, type: "binary"});
+        function s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        };
+        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'invoice_list.xlsx');
     }
 
     clearFilter = () => {
@@ -184,14 +229,14 @@ class invoiceList {
                     <td class="column4">
                         <div class="sentTd">
                             <p>${item.Sent}</p>
-                            <p class="yellow smallBoldText">Aug 19, 2019</p>
+                            <p class="yellow smallBoldText">${item.Sent_date}</p>
                         </div>
                     </td> 
                     <td class="column5">${item.Bank_fee}</td>
                     <td class="column6">
                         <div>
                             <p>${item.Received}</p>
-                            <p class="blue smallBoldText">Aug 19, 2019</p>
+                            <p class="blue smallBoldText">${item.Received_date}</p>
                         </div>
                     </td>
                     <td class="column7">${item.Bank}</td>
@@ -230,6 +275,7 @@ class invoiceList {
         this.loadUsers(LIST);
         this.showFilterBtn.addEventListener("click", this.filterList);
         this.clearFilterBtn.addEventListener("click", this.clearFilter);
+        this.btnExel.addEventListener("click", this.saveXls);
     }
 };
 

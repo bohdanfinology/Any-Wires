@@ -265,6 +265,23 @@ label {
 .searchBlock {
     display: flex;
 }
+
+.downloadXls-block {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+#dowloadXls {
+    cursor: pointer;
+}
+#dowloadXls:hover{
+    filter: invert(75%);
+}
+#dowloadXls:active{
+    filter: invert(95%);
+}
 /* Search Block  END*/
 
 
