@@ -54,6 +54,8 @@ const USERS = [{
     Last_login_date: "Jun 28, 2019"
 }];
 
+MERCHANTS = ["CK", "CMP24", "GigaFX", "Omer", "Lions", "BU", "Tesla", "CFM Solution", "English", "TurboF"];
+
 class UsersList {
     constructor(){
         this.sortNameBtnUp = document.querySelectorAll(".sortUp");
@@ -64,8 +66,15 @@ class UsersList {
         this.render();
     }
 
-    hideSortBtn = () => {
-        
+    marchantsForSelect = () => {
+        this.container = document.querySelector("#filterMerchant");
+        MERCHANTS.forEach((item) => {
+            console.log(item);
+            this.option = document.createElement("option");
+            this.option.textContent = item;
+            this.option.value = item;
+            this.container.appendChild(this.option);
+        })
     }
 
     sortArrDown = (arr, key) => {
@@ -201,10 +210,8 @@ class UsersList {
     render(){
         this.loadUsers(USERS);
         this.hideBlock();
-        this.buttonSearch.addEventListener("click", this.searchFunction);
         this.createUser_btn.addEventListener("click", this.createUser);
         this.buttonPdf.addEventListener("click", this.downloadPdf);
-        this.hideSortBtn();
 
         this.sortNameBtnDown.forEach((btn) => {
             btn.addEventListener("click", () => {
@@ -227,6 +234,8 @@ class UsersList {
                 btn.style.display = "none";
             });
         })
+
+        this.marchantsForSelect();
     }
 };
 
