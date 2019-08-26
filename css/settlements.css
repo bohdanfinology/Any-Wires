@@ -442,6 +442,7 @@ table {
     padding-left: 10px;
     outline: none;
     font-size: 20px;
+    text-indent: 0;
 }
 
 .fourthRowCommentBlock {
@@ -1015,7 +1016,7 @@ label {
     .docType {
         height: 20px;
         padding: 0;
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #buttonid {
