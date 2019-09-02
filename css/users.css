@@ -140,7 +140,7 @@ label {
     margin-right: 20px;
 }
 
-.filterStatus-block {
+.filterMerchant-block {
     width: 240px;
     margin-right: 20px;
 }
@@ -155,6 +155,7 @@ label {
     width: 80%;
     display: flex;
     margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 #createUser-block {
@@ -174,7 +175,7 @@ label {
 }
 
 #search-input {
-    width: 250px;
+    width: 100%;
     height: 40px;
     background-color: #4D4D4D;
     border-radius: 3px 0 0 3px;
@@ -200,6 +201,7 @@ label {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    width: 250px;
 }
 
 #search-button {
@@ -299,16 +301,33 @@ label {
     height: 50px;
     width: 100px;
     margin-top: 80px;
-    background-color: green;
+    background-color: #12C7B2;
 }
 
 #saveUser-btn:hover {
     background-color: rgb(143, 143, 143);
 }
 #saveUser-btn:active {
-    background-color: rgb(231, 66, 44);
+    background-color: #20a5f7;
 }
 
+#modal-pleaseFill {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    box-shadow: 0px 0px 2px 2px rgba(201, 200, 200, 0.75);
+    top: 210px;
+    width: 600px;
+    height: 30px;
+    background-color: rgb(255, 0, 0)
+}
+
+#modal-pleaseFill p {
+    color:white;
+    font-size: 16px;
+}
 
 /* Animations */
 @keyframes slideInTop{
@@ -323,135 +342,114 @@ label {
     animation: .5s slideInTop ease-in-out 1;
 }
 
+@media screen and (max-width: 1365px) {
+    .containerBlock, #createUser-block, #tableUser-block {
+        width: 90%;
+    }
+}
 
-@media screen and (max-width: 640px) {
-    #modal-createUser {
-        top:50px;
+@media screen and (max-width: 1185px) {
+    header {
+        padding: 20px 0px 20px 60px;
     }
-    header h1 {
-        font-size: 22px;
+    .containerBlock, #createUser-block, #tableUser-block {
+        width: 95%;
     }
-    header img {
-        width: 35px;
-        height: 35px;
+    
+}
+
+@media screen and (max-width: 1100px) {
+    .byCreation-block, .filterMerchant-block, .filterRole-block {
+        width: 200px;
+    }
+    
+    .search-block {
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .filterBlock-first{
+        width: 100%;
     }
 
-    #createUser-button {
-        width: 120px;
-        height: 40px;
-        font-size: 14px;
+    .containerBlock {
+        flex-direction: column;
+    }
+
+    .search-block {
+        width: 100%;
+        margin-top: 20px;
     }
 
     #search-input {
-        width: 200px;
-        height: 40px;
-        font-size: 14px;
+        width: 220px;
     }
-    #search-button {
-        width: 40px;
-        height: 40px;
-        padding: 14px;
-    } 
-    .tableUser-header h2 {
-        font-size: 17px;
+}
+
+
+
+@media screen and (max-width: 700px) {
+    header {
+        padding: 15px 0px 15px 30px;
+    }
+
+    .filterBlock-first {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .byCreation-block, .filterMerchant-block, .filterRole-block {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-block {
+        justify-content: center;
     }
 
     /* Modal Create User */
     #modal-createUser {
        flex-direction: column;
        width: auto;
+       top: 50px;
     }
     #saveUser-btn {
         margin-top: 10px;
     }
 }
 
-
 @media screen and (max-width: 490px) {
-    
-    header {
-        padding: 20px 0 20px 20px;
-    }
-    header h1 {
-        font-size: 20px;
-    }
-    header img {
-        width: 30px;
-        height: 30px;
-    }
-    #createUser-block {
-        width: 95%;
-    }
-    #tableUser-block {
-        width: 95%;
-    }
-    #createUser-button {
-        width: 100px;
-        height: 30px;
-        font-size: 12px;
-    }
-    #search-input {
-        width: 150px;
-        height: 30px;
-        font-size: 12px;
-    }
-    #search-button {
-        width: 30px;
-        height: 30px;
-        padding: 10px;
-    }
-    .tableUser-header h2 {
-        font-size: 15px;
-    }
-    .table-arrows img {
-        width: 10px;
-        height: 10px;
-    }
-
-    main {
-        padding: 30px 0 30px 0px;
-    }
-    
-    .table-line {
-        margin: 0;
-    }
-    #tableUser-block {
-        padding: 40px 0;
-    }
-
     #saveUser-btn {
         width: 80px;
         height: 35px;
     }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 428px) {
+    main {
+        padding: 10px 0 10px 0px;
+    }
+
     header h1 {
+        font-size: 24px;
+    }
+
+    .tableUser-header h2 {
         font-size: 18px;
     }
-    header img {
-        width: 28px;
-        height: 28px;
+
+    .table-line  {
+        margin: 0px 0;
     }
+
+    #createUser-block {
+        flex-direction: column;
+        align-items: center;
+    }
+
     #createUser-button {
-        width: 97px;
-        height: 30px;
-        font-size: 11px;
-        padding: 4px;
-    }
-    #search-input {
-        width: 130px;
-        height: 30px;
-        font-size: 11px;
-        padding: 4px;
-    }
-    #search-button {
-        width: 30px;
-        height: 30px;
-        padding: 10px;
-    }
-    .tableUser-header h2 {
-        font-size: 14px;
+        margin-top: 20px;
     }
 }
 
