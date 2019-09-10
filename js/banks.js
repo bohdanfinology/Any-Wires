@@ -23,7 +23,8 @@ class UsersList {
 
     createBankInit = () => {
         this.data = document.querySelectorAll(".allData");
-            this.data[15].checked ? this.sepa = "yes" : this.sepa = "no";
+            this.data[14].checked ? this.sepa = "yes" : this.sepa = "no";
+            this.data[15].checked ? this.b2b = "yes" : this.b2b = "no";
             this.newBank = {
                 Name: this.data[0].value,
                 Beneficiary_name: this.data[1].value,
@@ -36,11 +37,11 @@ class UsersList {
                 IBAN_number: this.data[8].value,
                 SWIFT_BIC: this.data[9].value,
                 Bank_address: this.data[10].value,
-                Incoming_fee: this.data[11].value,
-                Bank_company_site: this.data[12].value,
-                Stop_limit: this.data[13].value,
-                Description: this.data[14].value,
+                Bank_company_site: this.data[11].value,
+                Stop_limit: this.data[12].value,
+                Description: this.data[13].value,
                 Sepa: this.sepa,
+                B2B: this.b2b,
                 Requested: 0,
                 Sent: 0,
                 Received: 0,

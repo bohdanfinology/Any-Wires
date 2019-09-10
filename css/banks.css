@@ -330,7 +330,7 @@ label {
 }
 
 .bankName-block, .beneficiaryName-block, .solutionName-block, .bankCountry-block, .bankCurrency-block, .benefAdress-block, 
-.maxWire-block, .minWire-block, .SWIFT-block, .companySite-block, .bankAdress-block, .incomingFee-block, .stopLimit-block {
+.maxWire-block, .minWire-block, .SWIFT-block, .companySite-block, .bankAdress-block, .stopLimit-block {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -338,6 +338,12 @@ label {
 }
 
 .sepaAvailable-block {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.B2B-block {
     width: 100%;
     display: flex;
     margin-bottom: 15px;
@@ -403,6 +409,11 @@ label {
 
 .sepaCheckbox {
     width: 190px;
+    height: 20px;
+}
+
+.b2bcheckbox {
+    width: 337px;
     height: 20px;
 }
 
